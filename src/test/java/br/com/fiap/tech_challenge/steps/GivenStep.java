@@ -12,6 +12,7 @@ import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.SEQU
 import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.ORDER_BREADCRUMB;
 import static br.com.fiap.tech_challenge.properties.PropertiesConfigurationManager.getProperties;
 import static br.com.fiap.tech_challenge.util.BodyFactory.createOrder;
+import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class GivenStep extends BaseStep {
@@ -28,14 +29,13 @@ public class GivenStep extends BaseStep {
         var createOrderUrl = baseUrl + ORDER_BREADCRUMB;
 
         var response = requests.post(createOrderUrl, createOrder().toString());
+        var orderId = response.jsonPath().getString(ORDER_ID);
 
         response.then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_CREATED)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(SEQUENCE, notNullValue());
-
-        var orderId = response.jsonPath().getString(ORDER_ID);
 
         context().add(ScenarioContextEnum.ORDER_ID, orderId);
     }

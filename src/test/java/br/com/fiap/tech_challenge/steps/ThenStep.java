@@ -10,13 +10,11 @@ import org.apache.http.HttpStatus;
 import static br.com.fiap.tech_challenge.common.Wait.await;
 import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.ORDER_ID;
 import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.STATUS;
-import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.COOK_BREADCRUMB_SLASH;
-import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.ORDER_BREADCRUMB_SLASH;
+import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.*;
 import static br.com.fiap.tech_challenge.constants.Constants.ParamTimes.FIVE_SECONDS;
 import static br.com.fiap.tech_challenge.constants.Constants.StatusTypes.*;
 import static br.com.fiap.tech_challenge.properties.PropertiesConfigurationManager.getProperties;
 import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
 
 public class ThenStep extends BaseStep {
 
@@ -34,46 +32,46 @@ public class ThenStep extends BaseStep {
 
         requests.get(orderStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(STATUS, equalTo(PREPARING));
     }
 
     @Entao("após o preparo, a cozinha deve evoluir o pedido para READY")
     public void apos_o_preparo_a_cozinha_deve_evoluir_o_pedido_para_READY(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var cookSetStatusUrl = baseUrl + COOK_BREADCRUMB_SLASH + orderId;
+        var cookSetStatusUrl = baseUrl + COOK_BREADCRUMB_SLASH + orderId + COOK_STATUS_READY;
         var orderStatusUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
 
-        requests.put(cookSetStatusUrl)
+        requests.patch(cookSetStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(STATUS, equalTo(READY));
 
         await(FIVE_SECONDS);
 
         requests.get(orderStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(STATUS, equalTo(READY));
     }
 
     @Entao("após a retirada do pedido pelo cliente o pedido deve ser evoluido para o status FINISHED")
     public void apos_a_retirada_do_pedido_pelo_cliente_o_pedido_deve_ser_evoluido_para_o_status_FINISHED(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var cookSetStatusUrl = baseUrl + COOK_BREADCRUMB_SLASH + orderId;
+        var cookSetStatusUrl = baseUrl + COOK_BREADCRUMB_SLASH + orderId + COOK_STATUS_FINISH;
         var orderStatusUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
 
 
-        requests.put(cookSetStatusUrl)
+        requests.patch(cookSetStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(STATUS, equalTo(FINISHED));
 
         await(FIVE_SECONDS);
 
         requests.get(orderStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(STATUS, equalTo(FINISHED));
     }
     @Entao("o pedido deve ser evoluido para o status FINISHED")
@@ -85,7 +83,7 @@ public class ThenStep extends BaseStep {
 
         requests.get(orderStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
-                .body(ORDER_ID, notNullValue())
+                .body(ORDER_ID, equalTo(orderId))
                 .body(STATUS, equalTo(FINISHED));
     }
 }

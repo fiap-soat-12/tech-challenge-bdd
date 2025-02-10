@@ -18,12 +18,12 @@ public class Requests {
                 .assertThat();
     }
 
-    public ValidatableResponse put(String url) {
+    public ValidatableResponse patch(String url) {
         return given()
                 .with()
                 .contentType(ContentType.JSON)
                 .with()
-                .put(url)
+                .patch(url)
                 .then()
                 .assertThat();
     }
@@ -47,5 +47,4 @@ public class Requests {
                 .with()
                 .post(url);
     }
-
 }

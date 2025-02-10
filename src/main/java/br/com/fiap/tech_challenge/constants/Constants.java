@@ -13,6 +13,8 @@ public class Constants {
         public static final String ORDER_BREADCRUMB_SLASH = ORDER_BREADCRUMB + SLASH;
         public static final String COOK_BREADCRUMB_SLASH = "/cook/v1/orders" + SLASH;
         public static final String PAID_STATUS_BREADCRUMB = "/paid-status";
+        public static final String COOK_STATUS_READY = "/status/" + StatusTypes.READY;
+        public static final String COOK_STATUS_FINISH = "/status/" + StatusTypes.FINISHED;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
