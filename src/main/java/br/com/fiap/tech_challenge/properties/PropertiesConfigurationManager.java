@@ -13,14 +13,9 @@ public class PropertiesConfigurationManager {
     }
 
     private static void setEnvironment() {
-
         String environment = System.getProperty(ENVIRONMENT);
-
-
-        String actualEnv = environment == null ? "hom" : environment;
-
+        String actualEnv = environment == null ? "local" : environment;
         System.setProperty(ENVIRONMENT, actualEnv);
-
         ConfigFactory.setProperty(ENVIRONMENT, actualEnv);
     }
 }
