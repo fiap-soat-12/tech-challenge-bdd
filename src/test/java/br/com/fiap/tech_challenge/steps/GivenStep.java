@@ -7,8 +7,8 @@ import br.com.fiap.tech_challenge.util.Requests;
 import io.cucumber.java.pt.Dado;
 import org.apache.http.HttpStatus;
 
-import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.ORDER_ID;
-import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.SEQUENCE;
+import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributesConstants.ORDER_ID;
+import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributesConstants.SEQUENCE;
 import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.ORDER_BREADCRUMB;
 import static br.com.fiap.tech_challenge.properties.PropertiesConfigurationManager.getProperties;
 import static br.com.fiap.tech_challenge.util.BodyFactory.createOrder;

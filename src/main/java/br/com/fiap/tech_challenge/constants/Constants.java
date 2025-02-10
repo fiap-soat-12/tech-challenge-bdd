@@ -13,12 +13,12 @@ public class Constants {
         public static final String ORDER_BREADCRUMB_SLASH = ORDER_BREADCRUMB + SLASH;
         public static final String COOK_BREADCRUMB_SLASH = "/cook/v1/orders" + SLASH;
         public static final String PAID_STATUS_BREADCRUMB = "/paid-status";
-        public static final String COOK_STATUS_READY = "/status/" + StatusTypes.READY;
-        public static final String COOK_STATUS_FINISH = "/status/" + StatusTypes.FINISHED;
+        public static final String COOK_STATUS_READY = "/status/" + StatusTypesConstants.READY;
+        public static final String COOK_STATUS_FINISH = "/status/" + StatusTypesConstants.FINISHED;
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
-    public static class ParamTimes {
+    public static class TimesConstants {
         public static final Long FIVE_SECONDS = 5000L;
     }
 
@@ -29,7 +29,7 @@ public class Constants {
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
-    public static class BodyAttributes {
+    public static class BodyAttributesConstants {
         public static final String ORDER_ID = "orderId";
         public static final String CUSTOMER_ID = "customerId";
         public static final String PRODUCTS = "products";
@@ -41,7 +41,7 @@ public class Constants {
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
-    public static class StatusTypes {
+    public static class StatusTypesConstants {
         public static final String PREPARING = "PREPARING";
         public static final String READY = "READY";
         public static final String FINISHED = "FINISHED";

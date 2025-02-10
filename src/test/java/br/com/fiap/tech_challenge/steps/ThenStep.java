@@ -8,11 +8,11 @@ import io.cucumber.java.pt.Entao;
 import org.apache.http.HttpStatus;
 
 import static br.com.fiap.tech_challenge.common.Wait.await;
-import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.ORDER_ID;
-import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.STATUS;
+import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributesConstants.ORDER_ID;
+import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributesConstants.STATUS;
 import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.*;
-import static br.com.fiap.tech_challenge.constants.Constants.ParamTimes.FIVE_SECONDS;
-import static br.com.fiap.tech_challenge.constants.Constants.StatusTypes.*;
+import static br.com.fiap.tech_challenge.constants.Constants.TimesConstants.FIVE_SECONDS;
+import static br.com.fiap.tech_challenge.constants.Constants.StatusTypesConstants.*;
 import static br.com.fiap.tech_challenge.properties.PropertiesConfigurationManager.getProperties;
 import static org.hamcrest.Matchers.equalTo;
 

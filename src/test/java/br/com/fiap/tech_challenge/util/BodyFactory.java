@@ -4,8 +4,8 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.*;
-import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributes.OBSERVATION;
+import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributesConstants.*;
+import static br.com.fiap.tech_challenge.constants.Constants.BodyAttributesConstants.OBSERVATION;
 
 public class BodyFactory {
 

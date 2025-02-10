@@ -12,7 +12,7 @@ import static br.com.fiap.tech_challenge.constants.Constants.AssertConstants.FAL
 import static br.com.fiap.tech_challenge.constants.Constants.AssertConstants.TRUE;
 import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.ORDER_BREADCRUMB_SLASH;
 import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.PAID_STATUS_BREADCRUMB;
-import static br.com.fiap.tech_challenge.constants.Constants.ParamTimes.FIVE_SECONDS;
+import static br.com.fiap.tech_challenge.constants.Constants.TimesConstants.FIVE_SECONDS;
 import static br.com.fiap.tech_challenge.properties.PropertiesConfigurationManager.getProperties;
 import static br.com.fiap.tech_challenge.util.BodyFactory.confirmPayment;
 import static br.com.fiap.tech_challenge.util.BodyFactory.refusePayment;
