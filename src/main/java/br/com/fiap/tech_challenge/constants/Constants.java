@@ -8,8 +8,10 @@ public class Constants {
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class EndpointConstants {
-        public static final String ORDER_BREADCRUMB = "/order/v1/orders/";
-        public static final String COOK_BREADCRUMB = "/cook/v1/orders/";
+        public static final String ORDER_BREADCRUMB = "/order/v1/orders";
+        public static final String SLASH = "/";
+        public static final String ORDER_BREADCRUMB_SLASH = ORDER_BREADCRUMB + SLASH;
+        public static final String COOK_BREADCRUMB_SLASH = "/cook/v1/orders" + SLASH;
         public static final String PAID_STATUS_BREADCRUMB = "/paid-status";
     }
 

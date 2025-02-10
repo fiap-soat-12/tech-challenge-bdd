@@ -26,15 +26,13 @@ public class BodyFactory {
                 );
     }
 
-    public static JSONObject confirmPayment(String orderId) {
+    public static JSONObject confirmPayment() {
         return new JSONObject()
-                .put(ORDER_ID, orderId)
                 .put(IS_PAID, true);
     }
 
-    public static JSONObject refusePayment(String orderId) {
+    public static JSONObject refusePayment() {
         return new JSONObject()
-                .put(ORDER_ID, orderId)
                 .put(IS_PAID, false);
     }
 }

@@ -10,7 +10,7 @@ import org.apache.http.HttpStatus;
 import static br.com.fiap.tech_challenge.common.Wait.await;
 import static br.com.fiap.tech_challenge.constants.Constants.AssertConstants.FALSE;
 import static br.com.fiap.tech_challenge.constants.Constants.AssertConstants.TRUE;
-import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.ORDER_BREADCRUMB;
+import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.ORDER_BREADCRUMB_SLASH;
 import static br.com.fiap.tech_challenge.constants.Constants.EndpointConstants.PAID_STATUS_BREADCRUMB;
 import static br.com.fiap.tech_challenge.constants.Constants.ParamTimes.FIVE_SECONDS;
 import static br.com.fiap.tech_challenge.properties.PropertiesConfigurationManager.getProperties;
@@ -30,14 +30,14 @@ public class WhenStep extends BaseStep {
     @Quando("o pagamento do pedido é confirmado")
     public void o_pagamento_do_pedido_e_confirmado(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var isPaidUrl = baseUrl + ORDER_BREADCRUMB + orderId + PAID_STATUS_BREADCRUMB;
-        var setPaidUrl = baseUrl + ORDER_BREADCRUMB + orderId;
+        var isPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId + PAID_STATUS_BREADCRUMB;
+        var setPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
 
         requests.get(isPaidUrl)
                 .statusCode(HttpStatus.SC_OK)
                 .body(equalTo(FALSE));
 
-        requests.put(setPaidUrl, confirmPayment(orderId).toString())
+        requests.put(setPaidUrl, confirmPayment().toString())
                 .statusCode(HttpStatus.SC_OK);
 
         await(FIVE_SECONDS);
@@ -50,10 +50,10 @@ public class WhenStep extends BaseStep {
     @Quando("o pagamento do pedido é recusado")
     public void o_pagamento_do_pedido_e_recusado (){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var setNotPaidUrl = baseUrl + ORDER_BREADCRUMB + orderId;
-        var isPaidUrl = baseUrl + ORDER_BREADCRUMB + orderId + PAID_STATUS_BREADCRUMB;
+        var setNotPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
+        var isPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId + PAID_STATUS_BREADCRUMB;
 
-        requests.put(setNotPaidUrl, refusePayment(orderId).toString())
+        requests.put(setNotPaidUrl, refusePayment().toString())
                 .statusCode(HttpStatus.SC_OK);
 
         await(FIVE_SECONDS);
