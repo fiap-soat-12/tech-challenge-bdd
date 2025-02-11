@@ -7,4 +7,7 @@ public interface PropertiesConfiguration extends Config {
 
     @Key("env.baseUrl")
     String baseUrl();
+
+    @Key("env.baseUrl.cook")
+    String baseUrlCook();
 }

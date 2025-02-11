@@ -39,7 +39,7 @@ public class ThenStep extends BaseStep {
     @Entao("após o preparo, a cozinha deve evoluir o pedido para READY")
     public void apos_o_preparo_a_cozinha_deve_evoluir_o_pedido_para_READY(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var cookSetStatusUrl = baseUrl + COOK_BREADCRUMB_SLASH + orderId + COOK_STATUS_READY;
+        var cookSetStatusUrl = getProperties().baseUrlCook() + COOK_BREADCRUMB_SLASH + orderId + COOK_STATUS_READY;
         var orderStatusUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
 
         requests.patch(cookSetStatusUrl)
@@ -58,9 +58,8 @@ public class ThenStep extends BaseStep {
     @Entao("após a retirada do pedido pelo cliente o pedido deve ser evoluido para o status FINISHED")
     public void apos_a_retirada_do_pedido_pelo_cliente_o_pedido_deve_ser_evoluido_para_o_status_FINISHED(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var cookSetStatusUrl = baseUrl + COOK_BREADCRUMB_SLASH + orderId + COOK_STATUS_FINISH;
+        var cookSetStatusUrl = getProperties().baseUrlCook() + COOK_BREADCRUMB_SLASH + orderId + COOK_STATUS_FINISH;
         var orderStatusUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
-
 
         requests.patch(cookSetStatusUrl)
                 .statusCode(HttpStatus.SC_OK)
