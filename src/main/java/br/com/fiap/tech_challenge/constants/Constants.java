@@ -11,7 +11,8 @@ public class Constants {
         public static final String ORDER_BREADCRUMB = "/order/v1/orders";
         public static final String SLASH = "/";
         public static final String ORDER_BREADCRUMB_SLASH = ORDER_BREADCRUMB + SLASH;
-        public static final String COOK_BREADCRUMB_SLASH = "/cook/v1/orders" + SLASH;
+        public static final String COOK_BREADCRUMB_SLASH = "/api/v1/orders" + SLASH;
+        public static final String PAYMENT_BREADCRUMB_SLASH = "/payment/v1/qrs" + SLASH;
         public static final String PAID_STATUS_BREADCRUMB = "/paid-status";
         public static final String COOK_STATUS_READY = "/status/" + StatusTypesConstants.READY;
         public static final String COOK_STATUS_FINISH = "/status/" + StatusTypesConstants.FINISHED;
@@ -38,6 +39,7 @@ public class Constants {
         public static final String STATUS = "status";
         public static final String PRODUCT_ID = "id";
         public static final String OBSERVATION = "observation";
+        public static final String QR_CODE = "qr";
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

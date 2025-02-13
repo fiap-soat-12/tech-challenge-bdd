@@ -20,18 +20,18 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class WhenStep extends BaseStep {
 
-    private final String baseUrl = getProperties().baseUrl();
+    private final String baseUrlOrder = getProperties().baseUrlOrder();
     private final Requests requests = new Requests();
 
     public WhenStep(ScenarioContext context) {
         super(context);
     }
 
-    @Quando("o pagamento do pedido é confirmado")
-    public void o_pagamento_do_pedido_e_confirmado(){
+    @Quando("efetua o pagamento do pedido e o pagamento é confirmado")
+    public void efetua_o_pagamento_do_pedido_e_o_pagamento_e_confirmado(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var isPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId + PAID_STATUS_BREADCRUMB;
-        var setPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
+        var isPaidUrl = baseUrlOrder + ORDER_BREADCRUMB_SLASH + orderId + PAID_STATUS_BREADCRUMB;
+        var setPaidUrl = baseUrlOrder + ORDER_BREADCRUMB_SLASH + orderId;
 
         requests.get(isPaidUrl)
                 .statusCode(HttpStatus.SC_OK)
@@ -47,11 +47,11 @@ public class WhenStep extends BaseStep {
                 .body(equalTo(TRUE));
     }
 
-    @Quando("o pagamento do pedido é recusado")
-    public void o_pagamento_do_pedido_e_recusado (){
+    @Quando("efetua o pagamento do pedido e o pagamento é recusado")
+    public void efetua_o_pagamento_do_pedido_e_o_pagamento_e_recusado(){
         var orderId = context().getByKey(ScenarioContextEnum.ORDER_ID);
-        var setNotPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId;
-        var isPaidUrl = baseUrl + ORDER_BREADCRUMB_SLASH + orderId + PAID_STATUS_BREADCRUMB;
+        var setNotPaidUrl = baseUrlOrder + ORDER_BREADCRUMB_SLASH + orderId;
+        var isPaidUrl = baseUrlOrder + ORDER_BREADCRUMB_SLASH + orderId + PAID_STATUS_BREADCRUMB;
 
         requests.put(setNotPaidUrl, refusePayment().toString())
                 .statusCode(HttpStatus.SC_OK);
