@@ -6,8 +6,11 @@ import org.aeonbits.owner.Config;
 public interface PropertiesConfiguration extends Config {
 
     @Key("env.baseUrl")
-    String baseUrl();
+    String baseUrlOrder();
 
     @Key("env.baseUrl.cook")
     String baseUrlCook();
+
+    @Key("env.baseUrl.payment")
+    String baseUrlPayment();
 }
