@@ -1,0 +1,25 @@
+name: Set Environment Variables from Issue
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  set-env-vars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract URL from Issue
+        id: extract_url
+        run: |
+          URL=$(jq -r '.issue.body' $GITHUB_EVENT_PATH | grep -oP '(?<=https://)[^ ]+')
+          echo "URL: $URL"
+          echo "ENV_BASEURL_ORDER=https://$URL/order" >> $GITHUB_ENV
+          echo "ENV_BASEURL_COOK=https://$URL/cook" >> $GITHUB_ENV
+          echo "ENV_BASEURL_PAYMENT=https://$URL/payment" >> $GITHUB_ENV
+
+      - name: Trigger Workflow
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          event-type: trigger-build
+          client-payload: '{"ENV_BASEURL_ORDER": "${{ env.ENV_BASEURL_ORDER }}", "ENV_BASEURL_COOK": "${{ env.ENV_BASEURL_COOK }}", "ENV_BASEURL_PAYMENT": "${{ env.ENV_BASEURL_PAYMENT }}"}'
