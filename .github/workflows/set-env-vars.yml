@@ -4,6 +4,12 @@ on:
   issues:
     types: [opened]
 
+permissions:
+  contents: read
+  issues: read
+  actions: write
+  repository-projects: write
+
 jobs:
   set-env-vars:
     runs-on: ubuntu-latest
@@ -21,5 +27,6 @@ jobs:
       - name: Trigger Workflow
         uses: peter-evans/repository-dispatch@v2
         with:
+          token: ${{ secrets.PAT_TOKEN }}
           event-type: trigger-build
           client-payload: '{"ENV_BASEURL_ORDER": "${{ env.ENV_BASEURL_ORDER }}", "ENV_BASEURL_COOK": "${{ env.ENV_BASEURL_COOK }}", "ENV_BASEURL_PAYMENT": "${{ env.ENV_BASEURL_PAYMENT }}"}'
