@@ -23,13 +23,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      
-      - name: Compilar o projeto
-        run: mvn clean install
 
       - name: Build and run tests
         env:
           ENV_BASEURL_ORDER: "${{ secrets.GATEWAY_URL }}/order"
           ENV_BASEURL_COOK: "${{ secrets.ENV_BASEURL_COOK }}/cook"
           ENV_BASEURL_PAYMENT: "${{ secrets.GATEWAY_UR }}/payment"
-        run: mvn clean install
+        run: mvn clean install -U
