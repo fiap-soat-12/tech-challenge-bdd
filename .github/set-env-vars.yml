@@ -14,9 +14,9 @@ jobs:
         run: |
           URL=$(jq -r '.issue.body' $GITHUB_EVENT_PATH | grep -oP '(?<=https://)[^ ]+')
           echo "URL: $URL"
-          echo "ENV_BASEURL_ORDER=https://$URL/order" >> $GITHUB_ENV
-          echo "ENV_BASEURL_COOK=https://$URL/cook" >> $GITHUB_ENV
-          echo "ENV_BASEURL_PAYMENT=https://$URL/payment" >> $GITHUB_ENV
+          echo "ENV_BASEURL_ORDER=$URL/order" >> $GITHUB_ENV
+          echo "ENV_BASEURL_COOK=$URL/cook" >> $GITHUB_ENV
+          echo "ENV_BASEURL_PAYMENT=$URL/payment" >> $GITHUB_ENV
 
       - name: Trigger Workflow
         uses: peter-evans/repository-dispatch@v2
