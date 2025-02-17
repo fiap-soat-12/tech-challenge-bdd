@@ -5,7 +5,7 @@ import org.aeonbits.owner.Config;
 @Config.Sources({"classpath:infra/${environment}.properties"})
 public interface PropertiesConfiguration extends Config {
 
-    @Key("env.baseUrl")
+    @Key("env.baseUrl.order")
     String baseUrlOrder();
 
     @Key("env.baseUrl.cook")
