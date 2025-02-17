@@ -5,7 +5,7 @@
 ![GitHub Release Date](https://img.shields.io/badge/Release%20Date-Fevereiro%202025-yellowgreen)
 ![](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellowgreen)
 <br>
-![](https://img.shields.io/badge/Version-%20v2.0.0-brightgreen)
+![](https://img.shields.io/badge/Version-%20v1.0.0-brightgreen)
 </div>
 
 ## 💻 Descrição
