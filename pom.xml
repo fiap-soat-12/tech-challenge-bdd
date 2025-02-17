@@ -26,11 +26,6 @@
 
         <jackson-databind.version>2.18.0</jackson-databind.version>
         <json.version>20231013</json.version>
-        <lombok.version>1.18.34</lombok.version>
-
-<!--        <Json.version>20231013</json.version>-->
-
-<!--        <Lombok.version>1.18.34</lombok.version>-->
 
         <owner.version>1.0.10</owner.version>
 
