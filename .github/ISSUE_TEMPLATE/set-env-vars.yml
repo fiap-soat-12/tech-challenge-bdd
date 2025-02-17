@@ -1,6 +1,6 @@
-name: Set Environment Variables
-description: Set environment variables for the workflow
-title: "[Set Env] Configure environment variables"
+name: Set Gateway URL on environment variables
+description: Set environment gateway url on variables for the workflow
+title: "[Set Gateway URL] Configure gateway URL in environment variables"
 labels: ["automation"]
 body:
   - type: input

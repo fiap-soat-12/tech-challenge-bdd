@@ -1,4 +1,4 @@
-name: Build and Docker Image Deploy to AWS
+name: Build and execute tests
 
 on:
   workflow_dispatch:
