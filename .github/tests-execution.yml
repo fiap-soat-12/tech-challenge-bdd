@@ -1,0 +1,29 @@
+name: Build and Docker Image Deploy to AWS
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-build]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '21'
+
+      - name: Build and run tests
+        env:
+          ENV_BASEURL_ORDER: ${{ github.event.client_payload.ENV_BASEURL_ORDER }}
+          ENV_BASEURL_COOK: ${{ github.event.client_payload.ENV_BASEURL_COOK }}
+          ENV_BASEURL_PAYMENT: ${{ github.event.client_payload.ENV_BASEURL_PAYMENT }}
+        run: |
+          mvn clean install

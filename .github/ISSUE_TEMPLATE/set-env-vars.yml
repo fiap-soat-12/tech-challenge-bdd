@@ -1,0 +1,13 @@
+name: Set Environment Variables
+description: Set environment variables for the workflow
+title: "[Set Env] Configure environment variables"
+labels: ["automation"]
+body:
+  - type: input
+    id: env_url
+    attributes:
+      label: "Enter the Gateway URL"
+      description: "Provide the Gateway URL to be used for environment variables."
+      placeholder: "https://example.com"
+    validations:
+      required: true
