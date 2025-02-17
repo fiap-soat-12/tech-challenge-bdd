@@ -91,12 +91,6 @@
             <version>${json.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>Lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>org.aeonbits.owner</groupId>
             <artifactId>owner</artifactId>
             <version>1.0.10</version>

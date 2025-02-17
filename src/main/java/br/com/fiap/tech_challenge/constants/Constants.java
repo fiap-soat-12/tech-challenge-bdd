@@ -1,13 +1,11 @@
 package br.com.fiap.tech_challenge.constants;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constants {
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
+    private Constants() {}
+
     public static class EndpointConstants {
+        private EndpointConstants() {}
         public static final String ORDER_BREADCRUMB = "/order/v1/orders";
         public static final String SLASH = "/";
         public static final String ORDER_BREADCRUMB_SLASH = ORDER_BREADCRUMB + SLASH;
@@ -18,19 +16,19 @@ public class Constants {
         public static final String COOK_STATUS_FINISH = "/status/" + StatusTypesConstants.FINISHED;
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class TimesConstants {
+        private TimesConstants() {}
         public static final Long FIVE_SECONDS = 5000L;
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class AssertConstants {
+        private AssertConstants() {}
         public static final String FALSE = "false";
         public static final String TRUE = "true";
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class BodyAttributesConstants {
+        private BodyAttributesConstants() {}
         public static final String ORDER_ID = "orderId";
         public static final String CUSTOMER_ID = "customerId";
         public static final String PRODUCTS = "products";
@@ -42,8 +40,8 @@ public class Constants {
         public static final String QR_CODE = "qr";
     }
 
-    @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class StatusTypesConstants {
+        private StatusTypesConstants() {}
         public static final String PREPARING = "PREPARING";
         public static final String READY = "READY";
         public static final String FINISHED = "FINISHED";

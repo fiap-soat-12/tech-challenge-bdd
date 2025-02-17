@@ -1,16 +1,14 @@
 package br.com.fiap.tech_challenge.common;
 
-import lombok.AccessLevel;
-import lombok.RequiredArgsConstructor;
-import lombok.experimental.FieldDefaults;
-
-@FieldDefaults(level = AccessLevel.PRIVATE)
-@RequiredArgsConstructor
 public abstract class BaseStep {
 
-    final ScenarioContext context;
+    private final ScenarioContext context;
 
-    final ContextAdapter contextAdapter = new ContextAdapter();
+    private final ContextAdapter contextAdapter = new ContextAdapter();
+
+    protected BaseStep(ScenarioContext context) {
+        this.context = context;
+    }
 
     protected ContextAdapter context() {
         return contextAdapter;
