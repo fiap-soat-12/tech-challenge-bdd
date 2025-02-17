@@ -22,8 +22,8 @@ jobs:
 
       - name: Build and run tests
         env:
-          ENV_BASEURL_ORDER: ${{ github.event.client_payload.ENV_BASEURL_ORDER }}
-          ENV_BASEURL_COOK: ${{ github.event.client_payload.ENV_BASEURL_COOK }}
-          ENV_BASEURL_PAYMENT: ${{ github.event.client_payload.ENV_BASEURL_PAYMENT }}
+          ENV_BASEURL_ORDER: "${{ secrets.GATEWAY_URL }}/order"
+          ENV_BASEURL_COOK: "${{ secrets.ENV_BASEURL_COOK }}/cook"
+          ENV_BASEURL_PAYMENT: "${{ secrets.GATEWAY_UR }}/payment"
         run: |
           mvn clean install
