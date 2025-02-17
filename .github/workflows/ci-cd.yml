@@ -23,6 +23,9 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
+      
+      - name: Compilar o projeto
+        run: mvn clean install
 
       - name: Build and run tests
         env:
