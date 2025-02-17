@@ -94,7 +94,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>Lombok</artifactId>
             <version>${lombok.version}</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.aeonbits.owner</groupId>
