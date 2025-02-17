@@ -65,6 +65,6 @@ Os cenários compartilham um contexto com o mesmo OrderID que é retornado na cr
   Caso deseje executar os testes BDD:
 
   1. Certificar que todos os microserviços estão deployados e sua saúde estável
-  2. A aplicação espera 3 parâmetros 'env.baseUrl.order', 'env.baseUrl.cook', 'env.baseUrl.payment', caso a aplicação esteja sendo exposta com um gateway, é necessário passar a URL do gateway nestes três parâmetros, caso esteja sendo executada local, é necessário passar a Base URL Microserviço.
+  2. A aplicação espera 3 parâmetros 'ENV_BASE_URL_ORDER', 'ENV_BASE_URL_COOK', 'ENV_BASE_URL_PAYMENT', caso a aplicação esteja sendo exposta com um gateway, é necessário passar a URL do gateway nestes três parâmetros, caso esteja sendo executada local, é necessário passar a Base URL Microserviço.
   3. Executar o comando 'mvn test'
 
