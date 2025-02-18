@@ -68,3 +68,7 @@ Os cenários compartilham um contexto com o mesmo OrderID que é retornado na cr
   2. A aplicação espera 3 parâmetros 'ENV_BASE_URL_ORDER', 'ENV_BASE_URL_COOK', 'ENV_BASE_URL_PAYMENT', caso a aplicação esteja sendo exposta com um gateway, é necessário passar a URL do gateway nestes três parâmetros, caso esteja sendo executada local, é necessário passar a Base URL Microserviço.
   3. Executar o comando 'mvn test'
 
+## ✅ Cobertura de Testes
+
+### BDD
+![BDD](./assets/bdd.png)
