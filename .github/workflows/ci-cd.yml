@@ -29,4 +29,4 @@ jobs:
           ENV_BASEURL_ORDER: "${{ secrets.GATEWAY_URL }}/order"
           ENV_BASEURL_COOK: "${{ secrets.ENV_BASEURL_COOK }}/cook"
           ENV_BASEURL_PAYMENT: "${{ secrets.GATEWAY_UR }}/payment"
-        run: mvn clean install -Dmaven.compiler.forceJavacCompilerUse=true
+        run: mvn clean install
